@@ -28,37 +28,40 @@ function playRound(player, computer) {
     const resultado = document.querySelector(".fraseResult")
 
     if (player.toLowerCase() == computer.toLowerCase()) {
-        // resultado.innerText = "Você empatou com a maquina, tinha que ser um idiota!"
+        resultado.innerText = "Você empatou com a maquina, tinha que ser um idiota!"
+        window.scrollTo(1000, 1000);
     }
 
     else if (computer == "pedra") {
         if (player.toLowerCase() == "tesoura") {
+            resultado.innerText = "Pedra quebra tesoura, escolha melhor na proxima idiota!"
             attScore(".pointsMaquina")
         } else if (player.toLowerCase() == "papel") {
+            resultado.innerText = "Papel vence pedra??Okay, eu não fiz as regras né!"
             attScore(".pointsPlayer")
         }
 
-        resultado.innerText = ""
     }
 
     else if (computer == "tesoura") {
         if (player.toLowerCase() == "papel") {
+            resultado.innerText = "Tesoura corta papel, quantos anos você tem?"
             attScore(".pointsMaquina")
         } else if (player.toLowerCase() == "pedra") {
+            resultado.innerText = "Boaa! Pedra quebra tesoura. Até que enfim você foi esperto!"
             attScore(".pointsPlayer")
         }
 
-        resultado.innerText = ""
     }
 
     else if (computer == "papel") {
         if (player.toLowerCase() == "pedra") {
+            resultado.innerText = "Perdeu trouxa! Papel engole pedra!"
             attScore(".pointsMaquina")
         } else if (player.toLowerCase() == "tesoura") {
+            resultado.innerText = "Parabens, tesoura corta papel! Obvio!"
             attScore(".pointsPlayer")
         }
-
-        resultado.innerText = ""
     }
 }
 
@@ -88,50 +91,3 @@ function resetGame() {
     let pcPoints = document.querySelector(".pointsMaquina").innerText = 0
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*if (playerOption.toLowerCase() == "papel") {
-
-    if (computerOptions == gameOptions[0]) {
-        console.log("Você ganhou Papel cobre Pedra");
-    } else if (computerOptions == gameOptions[1]) {
-        console.log("Empate!! Papel com Papel é igual um papelzão");
-    } else {
-        console.log("Você perdeu!! Tesoura transforma seu papel em papeizinhos!");
-    }
-} else if (playerOption.toLowerCase() == "pedra") {
-
-    if (computerOptions == gameOptions[0]) {
-        console.log("Empate!! Continue juntando PEDRA com PEDRA e forme uma PEDREIRA");
-    } else if (computerOptions == gameOptions[1]) {
-        console.log("Você perdeu!! Sua PEDRA foi completamente engolida pelo PAPEL");
-    } else {
-        console.log("Você Ganhou!! PEDRA esmaga TESOURA!");
-    }
-} else if (playerOption.toLowerCase() == "tesoura") {
-
-    if (computerOptions == gameOptions[0]) {
-        console.log("Você Perdeu!! PEDRA esmaga TESOURA! ");
-    } else if (computerOptions == gameOptions[1]) {
-        console.log("Você Ganhou!!Sua TESOURA transforma o PAPEL em papeizinhos! ");
-    } else {
-        console.log("EMPATE!! TESOURA COM TESOURA, DUAS TESOURAS");
-    }
-}*/
