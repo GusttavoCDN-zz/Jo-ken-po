@@ -1,0 +1,83 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+}
+
+body {
+    background-color: black;
+    font-family: "Lacquer", cursive, arial, sans-serif;
+    color: white;
+}
+
+main {
+    min-width: 100vw;
+    min-height: 100vh;
+}
+
+h1 {
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+    font-size: 5rem;
+    text-align: center;
+}
+
+.frase {
+    text-align: center;
+    font-size: 2rem;
+    line-height: 1.5;
+}
+
+h2 {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    margin-top: 3rem;
+}
+
+.armas {
+    display: flex;
+    justify-content: center;
+}
+
+.armas div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 200px;
+    border: 1px solid white;
+    margin: 0 10px;
+}
+
+.armas div img {
+    width: 150px;
+    height: 150px;
+}
+
+.scoreJogadores {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+.score_label {
+    font-size: 2rem;
+    padding: 0 40px;
+}
+
+.scores {
+    display: flex;
+    justify-content: center;
+}
+
+.points {
+    font-size: 6rem;
+    padding: 0 40px;
+}
+
+.fraseResult {
+    text-align: center;
+    font-size: 2rem;
+}
