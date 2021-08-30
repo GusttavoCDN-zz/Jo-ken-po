@@ -6,19 +6,15 @@ buttons.forEach(button => {
         const playerPoints = document.querySelector(".pointsPlayer")
         const pcPoints = document.querySelector(".pointsMaquina")
 
-        
+
         let playerOption = choosenImg.alt
 
         let options = ["pedra", "papel", "tesoura"]
         let computerOption = options[parseInt(Math.random() * 3)]
 
-        if(playerPoints.innerText == "5"|| pcPoints.innerText == "5") {
-            resetGame()
-        }
-
         playRound(playerOption, computerOption)
 
-        if(playerPoints.innerText == "5"|| pcPoints.innerText == "5") {
+        if (playerPoints.innerText == "5" || pcPoints.innerText == "5") {
             endGame()
         }
     })
@@ -28,8 +24,7 @@ function playRound(player, computer) {
     const resultado = document.querySelector(".fraseResult")
 
     if (player.toLowerCase() == computer.toLowerCase()) {
-        resultado.innerText = "Você empatou com a maquina, tinha que ser um idiota!"
-        window.scrollTo(1000, 1000);
+        resultado.innerText = "EMPATE! Parece que ambos escolheram a mesma coisa, é uma batalha de Sharigan?"
     }
 
     else if (computer == "pedra") {
@@ -37,7 +32,7 @@ function playRound(player, computer) {
             resultado.innerText = "Pedra quebra tesoura, escolha melhor na proxima idiota!"
             attScore(".pointsMaquina")
         } else if (player.toLowerCase() == "papel") {
-            resultado.innerText = "Papel vence pedra??Okay, eu não fiz as regras né!"
+            resultado.innerText = "WTF!! Papel vence pedra?? Okay, eu não fiz as regras né!"
             attScore(".pointsPlayer")
         }
 
@@ -45,10 +40,10 @@ function playRound(player, computer) {
 
     else if (computer == "tesoura") {
         if (player.toLowerCase() == "papel") {
-            resultado.innerText = "Tesoura corta papel, quantos anos você tem?"
+            resultado.innerText = "Tesoura corta papel! Vai me dizer que isso não era obvio para você?"
             attScore(".pointsMaquina")
         } else if (player.toLowerCase() == "pedra") {
-            resultado.innerText = "Boaa! Pedra quebra tesoura. Até que enfim você foi esperto!"
+            resultado.innerText = "Boaa! Pedra quebra tesoura."
             attScore(".pointsPlayer")
         }
 
@@ -63,6 +58,8 @@ function playRound(player, computer) {
             attScore(".pointsPlayer")
         }
     }
+    window.scrollTo(1000, 1000);
+
 }
 
 function attScore(roundWinner) {
@@ -75,19 +72,50 @@ function attScore(roundWinner) {
 function endGame() {
     let playerPoints = document.querySelector(".pointsPlayer").innerText
     let pcPoints = document.querySelector(".pointsMaquina").innerText
-    let resultado = document.querySelector(".fraseResult")
+
+    const resultado = document.querySelector(".fraseResult").innerText = ""
+
+    let divRestart = document.querySelector(".restartGame")
+    divRestart.classList.add("active")
+
+    const resultadoFinal = document.querySelector(".mensagemFinal");
 
     if (playerPoints > pcPoints) {
-        resultado.innerText = "Parabens Trouxa!! VOCÊ CONSEGUIU VENCER!"
+
+        resultadoFinal.innerText = "Você ganhou, mas não merece PARABENS! Não fez mais que sua obrigação!"
     } else {
-        resultado.innerText = "Como eu esperava, você não passa de um animal!"
+        resultadoFinal.innerText = "Como eu esperava, você não passa de um perdedor!"
     }
+
+    const buttons = document.querySelectorAll(".button");
+
+    buttons.forEach(button => {
+        button.setAttribute("disabled", "disabled")
+    })
+
+    document.querySelector(".armas").classList.add("disabled");
+
+
+    const buttonReset = document.querySelector(".buttonRestart");
+
+    buttonReset.addEventListener("click", resetGame); _
 }
 
+
 function resetGame() {
-
-
     let playerPoints = document.querySelector(".pointsPlayer").innerText = 0
     let pcPoints = document.querySelector(".pointsMaquina").innerText = 0
 
+    let divRestart = document.querySelector(".restartGame")
+    divRestart.classList.remove("active")
+
+    const resultado = document.querySelector(".fraseResult").innerText = ""
+
+    const buttons = document.querySelectorAll(".button");
+
+    buttons.forEach(button => {
+        button.removeAttribute("disabled", "disabled")
+    })
+
+    document.querySelector(".armas").classList.remove("disabled");
 }
